@@ -1,0 +1,286 @@
+<div id="stepChecklist" style="max-width:610px;margin:44px auto;background:#fff;border-radius:2.2rem;box-shadow:0 4px 32px #0098791b;padding:2.8rem 1.9rem 2.3rem 1.9rem;">
+  <div style="text-align:center;font-weight:900;letter-spacing:0.5px;color:#009879;font-size:1.51rem;margin-bottom:0.21em;line-height:1.18;">
+    Дмитрий Зверев
+  </div>
+  <h2 style="text-align:center;color:#009879;font-size:2.45rem;font-weight:900;margin-bottom:1.07rem;letter-spacing:0.6px;line-height:1.13;">
+    Чек-лист: 10 шагов к вашей автоворонке
+  </h2>
+  <div style="text-align:center;margin-bottom:0.66rem;color:#00705c;font-size:1.47rem;font-weight:800;line-height:1.32;">
+    Инструкция: отмечайте каждый пункт выполненным — после этого следующий шаг появится автоматически.
+  </div>
+  <div style="text-align:center;margin-bottom:1.18rem;color:#009879;font-size:1.05rem;font-weight:600;">
+    <span style="font-size:1.14rem;">💡</span> Кликните по чекбоксу, чтобы отметить шаг как выполненный
+  </div>
+  <ol id="stepsList" class="checklist-steps">
+    <!-- Шаги сюда -->
+  </ol>
+  <div id="congrats" style="display:none;margin-top:2.2rem;text-align:center;">
+    <div style="font-size:1.41rem;color:#009879;font-weight:900;margin-bottom:1.1em;">
+      🚀 Поздравляем! Вы прошли все шаги!<br>Нажмите на кнопку ниже, чтобы узнать больше:
+    </div>
+    <button onclick="window.open('https://dzverev.ru/mini-kurs-avp','_blank')" 
+      style="display:inline-block;padding:1.16rem 2.2rem;background:#ff3434;color:#fff;border:none;border-radius:1.4rem;font-size:1.32rem;font-weight:900;box-shadow:0 2px 20px #ff343466;cursor:pointer;letter-spacing:0.7px;margin-bottom:1.5rem;transition:background 0.18s;">
+      Про создание автоворонок
+    </button>
+    <div>
+      <a href="https://dzverev.ru/mini-kurs-avp" target="_blank" rel="noopener">
+        <img src="https://fs-thb02.getcourse.ru/fileservice/file/thumbnail/h/de82bef6f0ac0cbb954bc6e495b8a633.png/s/s1200x/a/21541/sc/386"
+          alt="Мини-курс Дмитрия Зверева" 
+          style="margin:1.2em auto 0 auto;max-width:98%;width:380px;display:block;border-radius:1.1em;box-shadow:0 2px 18px #ff343421;cursor:pointer;">
+      </a>
+    </div>
+  </div>
+  <div style="text-align:center;">
+    <button onclick="resetStepChecklist()" id="resetBtn"
+    style="margin-top:2.6rem;padding:0.75rem 1.6rem;background:#e6f8f2;color:#009879;border:none;border-radius:1.18rem;font-size:1.09rem;font-weight:700;letter-spacing:0.52px;cursor:pointer;box-shadow:0 1.5px 8px #0098790a;opacity:0.78;transition:opacity 0.14s;">
+      Начать заново
+    </button>
+  </div>
+</div>
+<script>
+const steps = [
+  {
+    title: "Изучите свою целевую аудиторию",
+    items: [
+      "Проведите мини-опросы, изучите комментарии в социальных сетях и каналах вашей ниши, посмотрите какие видео в топе, какие книги являются бестселлерами.",
+      "Соберите данные о проблемах, страхах, желаниях, целях вашей аудитории. Для этого проводите консультации, активно общайтесь онлайн и офлайн.",
+      "Составьте аватар идеального клиента: кто он, как думает, что его мотивирует и так далее."
+    ]
+  },
+  {
+    title: "Определите основную цель автоворонки",
+    items: [
+      "Чётко пропишите: хотите ли вы продажи здесь и сейчас, выстраивание лояльности на долгосрок или вам нужно вовлечь аудиторию для запуска.",
+      "Зафиксируйте, какого результата ждёте (количество заявок, оплат, регистраций и т.д.)."
+    ]
+  },
+  {
+    title: "Спланируйте линейку продуктов",
+    items: [
+      "Придумайте бесплатный лид-магнит (PDF, видео, гайд).",
+      "Определите основной продукт вашей автоворонки.",
+      "Определите апселлы, понижающее предложение, продукт для клиентов.",
+      "Пропишите путь клиента: что и в каком порядке получает и покупает."
+    ]
+  },
+  {
+    title: "Создайте и оформите свои инфопродукты",
+    items: [
+      "Запишите видео, подготовьте PDF, чек-листы, иные материалы для всех этапов автоворонки.",
+      "Делайте акцент на ценности, результатах и уникальности вашего контента.",
+      "Проверьте, что каждый продукт соответствует боли и желанию клиента."
+    ]
+  },
+  {
+    title: "Определите схему автоворонки",
+    items: [
+      "Визуализируйте путь клиента: от подписки до оплаты — каждый шаг.",
+      "Используйте онлайн-сервисы вроде Miro или Воронки от GetCourse. Или нарисуйте просто на бумаге.",
+      "Убедитесь, что структура логична и не теряет человека на каждом этапе."
+    ]
+  },
+  {
+    title: "Подготовьте контент для писем и сами письма",
+    items: [
+      "Для каждого этапа составьте письма: приветствие, полезный контент, кейсы, ответы на возражения, прямой призыв к действию.",
+      "Пишите коротко, добавляйте персонализацию, истории и примеры.",
+      "Планируйте серию: что и в какой момент отправляется."
+    ]
+  },
+  {
+    title: "Создайте подписные и продающие страницы",
+    items: [
+      "Сделайте лендинг для лид-магнита и страницы для основного продукта.",
+      "Добавьте сильный заголовок, выгоды, отзывы, визуальные акценты.",
+      "Проверьте страницы на мобильных устройствах и исправьте ошибки отображения."
+    ]
+  },
+  {
+    title: "Настройте процессы",
+    items: [
+      "Для процесса регистрации.",
+      "Для отправки писем.",
+      "Для оплаты и предоставления доступа.",
+      "Реализуйте техническую связку сервисов."
+    ]
+  },
+  {
+    title: "Проверьте все и привлекайте аудиторию",
+    items: [
+      "Социальные сети.",
+      "Телеграм.",
+      "Яндекс Директ.",
+      "Реклама Вконтакте."
+    ]
+  },
+  {
+    title: "Проанализируйте воронку и усильте ее при необходимости",
+    items: [
+      "Анализ нужно делать после захода в серию хотя бы 300 человек.",
+      "Если нет нужных конверсий — усиливайте оффер на платный продукт.",
+      "Анализируйте и улучшайте подписную страницу, письма."
+    ]
+  }
+];
+
+let openStep = 0;
+
+function renderSteps() {
+  const stepsList = document.getElementById('stepsList');
+  stepsList.innerHTML = '';
+  for (let i = 0; i < steps.length; i++) {
+    const checked = i < openStep;
+    const isCurrent = i === openStep;
+    const li = document.createElement('li');
+    li.className = 'step-li' + (checked ? ' step-completed' : '');
+    li.innerHTML = `
+      <div class="step-li-inner${i <= openStep ? ' opened' : ''}${checked ? ' completed' : ''}">
+        <div class="step-flex">
+          <span class="step-num">${i+1}.</span>
+          <label style="cursor:pointer;flex:1;">
+            <input type="checkbox" ${checked ? 'checked disabled' : ''} ${isCurrent ? '' : 'disabled'} onchange="nextStep(${i})">
+            <span class="step-title${checked ? ' step-title-done' : ''}">${steps[i].title}</span>
+          </label>
+        </div>
+        <ul class="step-desc-list${checked ? ' step-desc-done' : ''}">
+          ${steps[i].items.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+    stepsList.appendChild(li);
+    // Анимация раскрытия только для новых
+    const inner = li.querySelector('.step-li-inner');
+    if (isCurrent) {
+      inner.style.maxHeight = '0';
+      inner.style.overflow = 'hidden';
+      inner.style.opacity = 0;
+      setTimeout(() => {
+        inner.style.transition = 'max-height 0.8s cubic-bezier(0.44,0,0.24,1), opacity 0.45s';
+        inner.style.maxHeight = '330px';
+        inner.style.opacity = 1;
+      }, 100);
+    } else if (i < openStep) {
+      inner.style.maxHeight = '330px';
+      inner.style.opacity = 1;
+    }
+  }
+  // Если все шаги отмечены
+  if (openStep === steps.length) {
+    document.getElementById('congrats').style.display = 'block';
+  } else {
+    document.getElementById('congrats').style.display = 'none';
+  }
+}
+
+function nextStep(i) {
+  if (i === openStep) {
+    openStep++;
+    renderSteps();
+    // Скролл к открытому шагу:
+    const lis = document.querySelectorAll('.step-li');
+    if (lis[openStep]) lis[openStep].scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+
+function resetStepChecklist() {
+  openStep = 0;
+  document.getElementById('congrats').style.display = 'none';
+  renderSteps();
+}
+
+window.onload = renderSteps;
+</script>
+<style>
+.checklist-steps {
+  list-style: none;
+  padding-left: 0;
+}
+.step-li {
+  margin-bottom: 0.6em;
+  font-size: 1.01em;
+}
+.step-li-inner {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: none;
+}
+.step-li-inner.opened {
+  max-height: 330px;
+  opacity: 1;
+  transition: max-height 0.8s cubic-bezier(0.44,0,0.24,1), opacity 0.45s;
+}
+.step-flex {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-bottom: 0.05em;
+}
+.step-num {
+  font-weight: 700;
+  color: #009879;
+  font-size: 1em;
+  min-width: 1.65em;
+  text-align: right;
+  margin-right: 0.13em;
+  flex-shrink: 0;
+  letter-spacing:0.02em;
+}
+.step-title {
+  font-weight: 700;
+  font-size: 0.95em;
+  letter-spacing: 0.01px;
+  line-height: 1.04;
+  display: inline;
+  transition: color 0.15s, text-decoration 0.18s, opacity 0.18s;
+}
+.step-li label {
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.step-desc-list {
+  font-size: 0.95em;
+  color: #16846e;
+  font-weight: 400;
+  margin: 0.33em 0 0 0;
+  padding-left: 2.3em;
+  line-height: 1.37;
+  background: #f6fcfa;
+  border-left: 3px solid #009879;
+  border-radius: 0.68em;
+  padding-top: 0.54em;
+  padding-bottom: 0.54em;
+  padding-right: 0.67em;
+  margin-right: 0.75em;
+  box-shadow: 0 2px 8px #00987913;
+  list-style-type: disc;
+  transition: opacity 0.18s;
+}
+
+/* Зачёркнутое состояние */
+.step-title-done,
+.step-li.completed .step-title {
+  text-decoration: line-through;
+  color: #16846e !important;
+  opacity: 0.66;
+}
+.step-desc-done,
+.step-li.completed .step-desc-list {
+  opacity: 0.54;
+  text-decoration: line-through;
+}
+
+#resetBtn:hover { opacity: 1; }
+
+@media (max-width: 600px) {
+  #stepChecklist { padding: 1.1rem 0.3rem 2.2rem 0.3rem; }
+  .step-num { font-size: 0.95em; min-width: 1.15em;}
+  .step-title { font-size: 0.91em;}
+  .step-desc-list { font-size: 0.93em; padding-left: 1.35em;}
+  .checklist-steps { font-size: 1em;}
+}
+</style>
